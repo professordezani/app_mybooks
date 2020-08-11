@@ -132,41 +132,46 @@ class _MyHomePageState extends State<MyHomePage> {
                       )));
               _getBooks();
             },
-            child: Column(children: [
-              Row(
-                children: <Widget>[
-                  Icon(_iconEvaluation(book.evaluation),
-                      size: 42, color: Colors.blue),
-                  VerticalDivider(
-                    width: 8,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    color: Colors.transparent,
+                    child: Row(
+                      children: <Widget>[
+                        Icon(_iconEvaluation(book.evaluation),
+                            size: 42, color: Colors.blue),
+                        VerticalDivider(
+                          width: 8,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              StringUtils.capitalize(book.title),
+                              style: TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            Text(
+                              book.status,
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.grey[700],
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        StringUtils.capitalize(book.title),
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
-                      ),
-                      Text(
-                        book.status,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                    ],
+                  Divider(
+                    height: 8,
                   )
-                ],
-              ),
-              Divider(
-                height: 8,
-              )
-            ]),
+                ]),
           ),
         );
       },
